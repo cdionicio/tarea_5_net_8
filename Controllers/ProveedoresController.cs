@@ -11,23 +11,23 @@ namespace ApiEmpresa.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ClientesController : ControllerBase
+    public class ProveedoresController : ControllerBase
     {
         private readonly Conexiones _context;
 
-        public ClientesController(Conexiones context)
+        public ProveedoresController(Conexiones context)
         {
             _context = context;
         }
 
-        // GET: api/Clientes
+        // GET: api/Proveedores
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Proveedores>>> GetProveedores()
         {
             return await _context.Proveedores.ToListAsync();
         }
 
-        // GET: api/Clientes/5
+        // GET: api/Proveedores/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Proveedores>> GetProveedores(int id)
         {
@@ -41,7 +41,7 @@ namespace ApiEmpresa.Controllers
             return proveedores;
         }
 
-        // PUT: api/Clientes/5
+        // PUT: api/Proveedores/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutProveedores(int id, Proveedores proveedores)
@@ -72,7 +72,7 @@ namespace ApiEmpresa.Controllers
             return NoContent();
         }
 
-        // POST: api/Clientes
+        // POST: api/Proveedores
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Proveedores>> PostProveedores(Proveedores proveedores)
@@ -83,7 +83,7 @@ namespace ApiEmpresa.Controllers
             return CreatedAtAction("GetProveedores", new { id = proveedores.Id_proveedor }, proveedores);
         }
 
-        // DELETE: api/Clientes/5
+        // DELETE: api/Proveedores/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProveedores(int id)
         {
